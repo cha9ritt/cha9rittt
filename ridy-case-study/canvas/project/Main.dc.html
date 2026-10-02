@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ridy 2.0 cover</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.pj{font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.cover-bg{background:radial-gradient(1100px 820px at 76% 34%,rgba(122,166,255,.55),rgba(122,166,255,0) 62%),radial-gradient(900px 700px at 6% 104%,rgba(22,56,168,.6),rgba(22,56,168,0) 62%)}
+.mapgrid{background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:96px 96px}
+.ghost{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.16);font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.ph{position:absolute;box-sizing:border-box;padding:12px;border-radius:60px;background:linear-gradient(145deg,#56628a 0%,#1d2440 16%,#0b0f1d 50%,#1d2440 84%,#46507a 100%)}
+.ph .scr{position:relative;overflow:hidden;border-radius:48px;background:#fff}
+.ph .scr img{display:block;width:100%;height:auto}
+.ph .isl{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:31%;height:30px;border-radius:20px;background:#05070f}
+.ph .glare{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:48px;background:linear-gradient(118deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 26%);pointer-events:none}
+.ph .br{position:absolute;right:-3px;top:24%;width:4px;height:11%;border-radius:0 3px 3px 0;background:linear-gradient(90deg,#1d2440,#5b6690)}
+.ph .bl1{position:absolute;left:-3px;top:17%;width:4px;height:5%;border-radius:3px 0 0 3px;background:linear-gradient(270deg,#1d2440,#5b6690)}
+.ph .bl2{position:absolute;left:-3px;top:25%;width:4px;height:8%;border-radius:3px 0 0 3px;background:linear-gradient(270deg,#1d2440,#5b6690)}
+.ph3d{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.24),inset 0 0 0 6px #070a14,5px 6px 0 -1px #1d2440,10px 12px 0 -2px #121831,15px 18px 0 -3px #0a0e1c,60px 90px 120px -30px rgba(6,14,52,.62),20px 40px 60px -20px rgba(6,14,52,.45)}
+.floor{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(10,24,80,.5),rgba(10,24,80,0));filter:blur(6px)}
+.pin3d{position:absolute;border-radius:50% 50% 50% 10px;transform:rotate(-45deg);background:radial-gradient(circle at 32% 28%,#fff7cf 0%,#ffd451 20%,#ffb800 55%,#c98900 100%);box-shadow:inset -10px -12px 22px rgba(120,64,0,.38),inset 8px 10px 16px rgba(255,255,255,.5),0 34px 44px -12px rgba(6,14,52,.5)}
+.pin3d .disc{position:absolute;left:50%;top:50%;width:52%;height:52%;transform:translate(-50%,-50%) rotate(45deg);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffff,#e9eefb 70%,#cfd8ee);box-shadow:inset 0 -4px 8px rgba(20,40,110,.18),0 3px 6px rgba(120,64,0,.25);display:flex;align-items:center;justify-content:center;color:#2f6bea}
+.stop3d{position:absolute;border-radius:24px;background:linear-gradient(150deg,#2a3a6e 0%,#0e1b3d 55%,#060d22 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -6px 12px rgba(0,0,0,.45),6px 8px 0 -1px #071030,0 30px 40px -12px rgba(6,14,52,.55);display:flex;align-items:center;justify-content:center;color:#fff}
+.bus-body{position:absolute;left:0;top:0;width:210px;height:112px;border-radius:34px 38px 22px 22px;background:linear-gradient(180deg,#ffffff 0%,#eef2fb 62%,#cdd7ee 100%);box-shadow:inset 0 -10px 18px rgba(30,50,120,.2),inset 0 8px 12px rgba(255,255,255,.95),0 30px 40px -14px rgba(6,14,52,.55)}
+.bus-win{position:absolute;left:18px;right:22px;top:20px;height:40px;border-radius:14px;background:linear-gradient(180deg,#7aa3ff 0%,#2f6bea 55%,#2556c4 100%);box-shadow:inset 0 3px 6px rgba(255,255,255,.45),inset 0 -4px 8px rgba(10,30,100,.35)}
+.bus-win-gaps{position:absolute;left:18px;right:22px;top:20px;height:40px;border-radius:14px;background:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 38px,#f3f6fd 38px,#f3f6fd 44px)}
+.bus-stripe{position:absolute;left:10px;right:10px;top:72px;height:9px;border-radius:5px;background:linear-gradient(180deg,#ffd451,#ffb800 60%,#d99a00)}
+.wheel{position:absolute;top:86px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#cfd8ee 0 22%,#3a4568 24% 34%,#141a30 36% 100%);box-shadow:inset 0 -4px 6px rgba(0,0,0,.5),0 10px 14px -4px rgba(6,14,52,.6)}
+.ticket3d{position:absolute;border-radius:22px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fd 60%,#dfe7f8 100%);box-shadow:inset 0 2px 0 #fff,inset 0 -6px 12px rgba(30,50,120,.14),6px 8px 0 -1px #c9d4ee,0 34px 44px -14px rgba(6,14,52,.55)}
+.chip{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.32);background:rgba(255,255,255,.06);color:#fff;font-size:16px;font-weight:600;white-space:nowrap}
+.chip-on{background:#fff;color:#2556c4;border-color:#fff}
+.route{fill:none;stroke:#ffb800;stroke-width:8;stroke-linecap:round;stroke-dasharray:.1 22}
+.meta-l{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.meta-v{font-size:21px;font-weight:700;color:#fff;margin-top:8px}
+</style>
+</helmet>
+<div class="pj" style="position: relative; width: 1920px; height: 1280px; overflow: hidden; background: #2f6bea; color: #fff">
+  <div class="cover-bg" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0"></div>
+  <div class="mapgrid" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0"></div>
+  <div class="ghost" style="position: absolute; left: -24px; top: 830px; font-size: 470px">CAMPUS</div>
+
+  <svg style="position: absolute; left: 0; top: 0" width="1920" height="1280" viewBox="0 0 1920 1280" aria-hidden="true">
+    <path class="route" d="M1742 1196 C1500 1252 1260 1168 1000 1214 C830 1244 720 1230 580 1224 C380 1216 140 1196 56 1236 L56 1290"></path>
+  </svg>
+  <div style="position: absolute; left: 1729px; top: 1183px; width: 26px; height: 26px; border-radius: 50%; background: #ffb800; box-shadow: 0 0 0 6px #fff, 0 0 0 16px rgba(255,255,255,.22)"></div>
+  <div style="position: absolute; left: 1700px; top: 1226px; font-size: 14px; font-weight: 800; letter-spacing: .14em">START</div>
+
+  <header style="position: absolute; left: 96px; right: 96px; top: 52px; display: flex; justify-content: space-between; align-items: center">
+    <div style="display: flex; align-items: center; gap: 14px">
+      <img src="/_blob/3637e3acb76e6641b054a8f599a889ab" alt="Ridy logo" style="width: 52px; height: 52px">
+      <span style="font-size: 30px; font-weight: 800; letter-spacing: -0.03em">Ridy</span>
+      <span style="font-size: 15px; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.5)">2.0</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px; font-size: 18px; font-weight: 600; color: rgba(255,255,255,.85)">
+      <span>UI/UX Case Study</span>
+      <span style="width: 6px; height: 6px; border-radius: 50%; background: #ffb800"></span>
+      <span>Mobile app</span>
+      <span style="width: 6px; height: 6px; border-radius: 50%; background: #ffb800"></span>
+      <span>2026</span>
+    </div>
+  </header>
+
+  <nav aria-label="Case study sections" style="position: absolute; left: 96px; top: 136px; display: flex; gap: 10px">
+    <span class="chip chip-on">Overview</span>
+    <span class="chip">Problem</span>
+    <span class="chip">Research</span>
+    <span class="chip">Users</span>
+    <span class="chip">Define</span>
+    <span class="chip">Flow</span>
+    <span class="chip">Wireframes</span>
+    <span class="chip">Visual</span>
+    <span class="chip">Design system</span>
+    <span class="chip">Screens</span>
+    <span class="chip">Safety</span>
+    <span class="chip">Testing</span>
+    <span class="chip">Outcome</span>
+  </nav>
+
+  <div style="position: absolute; left: 96px; top: 290px; width: 860px">
+    <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; background: rgba(14,27,61,.28); font-size: 18px; font-weight: 700">
+      <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffb800"></span>
+      College student app
+    </div>
+    <div style="display: flex; align-items: center; gap: 22px; margin-top: 30px">
+      <img src="/_blob/3637e3acb76e6641b054a8f599a889ab" alt="" style="width: 200px; height: 200px">
+      <div style="font-size: 250px; font-weight: 800; letter-spacing: -0.065em; line-height: .8">Ridy</div>
+    </div>
+    <div style="margin-top: 40px; font-size: 64px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.02">Get to class on time.</div>
+    <div style="font-size: 64px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.02">Get home safe.</div>
+    <p style="margin: 22px 0 0; max-width: 620px; font-size: 26px; font-weight: 500; line-height: 1.4; color: rgba(255,255,255,.88)">For free, or close to it. One commute app built around your class schedule.</p>
+  </div>
+
+  <div style="position: absolute; left: 96px; top: 1010px; display: flex; gap: 56px">
+    <div><div class="meta-l">Role</div><div class="meta-v">Product designer</div></div>
+    <div><div class="meta-l">Timeline</div><div class="meta-v">[N] weeks</div></div>
+    <div><div class="meta-l">Tools</div><div class="meta-v">Figma · Claude Design</div></div>
+    <div><div class="meta-l">Platform</div><div class="meta-v">iOS &amp; Android</div></div>
+  </div>
+
+  <div class="floor" style="left: 960px; top: 1110px; width: 420px; height: 70px"></div>
+  <div class="floor" style="left: 1220px; top: 1100px; width: 460px; height: 80px"></div>
+  <div class="floor" style="left: 1500px; top: 1120px; width: 400px; height: 70px"></div>
+
+  <div class="ph ph3d" style="left: 975px; top: 392px; width: 344px; transform: rotate(-8deg)">
+    <div class="scr"><img src="/_blob/a2b0e52f271265364c54c5012cd43b54" alt="Ridy live shuttle tracking screen"><div class="isl"></div><div class="glare"></div></div>
+    <div class="br"></div><div class="bl1"></div><div class="bl2"></div>
+  </div>
+  <div class="ph ph3d" style="left: 1525px; top: 378px; width: 344px; transform: rotate(8deg)">
+    <div class="scr"><img src="/_blob/0cff6b3bef0513c97d9c0121a24ceb21" alt="Ridy boarding pass screen"><div class="isl"></div><div class="glare"></div></div>
+    <div class="br"></div><div class="bl1"></div><div class="bl2"></div>
+  </div>
+  <div class="ph ph3d" style="left: 1238px; top: 246px; width: 396px">
+    <div class="scr"><img src="/_blob/73da3a713a3e11972689a20dba9a50f4" alt="Ridy student home screen"><div class="isl"></div><div class="glare"></div></div>
+    <div class="br"></div><div class="bl1"></div><div class="bl2"></div>
+  </div>
+
+  <div class="pin3d" style="left: 1712px; top: 214px; width: 112px; height: 112px">
+    <div class="disc">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>
+    </div>
+  </div>
+
+  <div class="stop3d" style="left: 896px; top: 846px; width: 78px; height: 78px; transform: rotate(-8deg)">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>
+  </div>
+
+  <div class="ticket3d" style="left: 1760px; top: 905px; width: 132px; height: 172px; transform: rotate(13deg)">
+    <svg style="position: absolute; left: 20px; top: 22px" width="92" height="92" viewBox="0 0 21 21" aria-hidden="true">
+      <g fill="#0e1b3d"><rect x="0" y="0" width="7" height="7" rx="1"></rect><rect x="14" y="0" width="7" height="7" rx="1"></rect><rect x="0" y="14" width="7" height="7" rx="1"></rect></g>
+      <g fill="#fff"><rect x="1.5" y="1.5" width="4" height="4"></rect><rect x="15.5" y="1.5" width="4" height="4"></rect><rect x="1.5" y="15.5" width="4" height="4"></rect></g>
+      <g fill="#0e1b3d"><rect x="2.5" y="2.5" width="2" height="2"></rect><rect x="16.5" y="2.5" width="2" height="2"></rect><rect x="2.5" y="16.5" width="2" height="2"></rect><rect x="9" y="1" width="2" height="3"></rect><rect x="9" y="6" width="3" height="2"></rect><rect x="8" y="10" width="2" height="2"></rect><rect x="12" y="9" width="3" height="2"></rect><rect x="16" y="10" width="3" height="2"></rect><rect x="10" y="13" width="2" height="4"></rect><rect x="14" y="14" width="2" height="2"></rect><rect x="17" y="15" width="3" height="3"></rect><rect x="13" y="18" width="4" height="2"></rect><rect x="1" y="9" width="3" height="2"></rect></g>
+    </svg>
+    <div style="position: absolute; left: 0; right: 0; top: 124px; text-align: center; font-size: 12px; font-weight: 700; color: #5e6886">or PIN <span style="font-size: 18px; font-weight: 800; color: #0e1b3d">7314</span></div>
+  </div>
+
+  <div style="position: absolute; left: 610px; top: 1104px; width: 214px; height: 136px">
+    <div class="bus-body"></div>
+    <div class="bus-win"></div>
+    <div class="bus-win-gaps"></div>
+    <div class="bus-stripe"></div>
+    <div class="wheel" style="left: 30px"></div>
+    <div class="wheel" style="left: 136px"></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

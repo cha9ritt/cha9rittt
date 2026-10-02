@@ -1,0 +1,16 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-02T04:05:00Z"},
+  "title": "Ridy 2.0 Case Study",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1920, "h": 1280, "title": "01 · Cover"},
+    "Problem-Story.dc.html": {"x": 0, "y": 1400, "w": 1920, "h": 1500, "title": "03 · Problem · A morning with Noah"},
+    "Problem-Numbers.dc.html": {"x": 0, "y": 3020, "w": 1920, "h": 1400, "title": "03 · Problem · In numbers"},
+    "Feature-Tracking.dc.html": {"x": 0, "y": 4540, "w": 1920, "h": 1300, "title": "16 · Feature · Live shuttle tracking"}
+  },
+  "order": ["Main.dc.html", "Problem-Story.dc.html", "Problem-Numbers.dc.html", "Feature-Tracking.dc.html"],
+  "notes": {},
+  "designSystems": []
+}

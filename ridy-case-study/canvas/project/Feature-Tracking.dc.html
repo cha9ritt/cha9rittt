@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Feature: live shuttle tracking</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.pj{font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.ghost{color:transparent;-webkit-text-stroke:2px rgba(47,107,234,.1);font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.maptex{background:linear-gradient(90deg,rgba(0,0,0,0) 164px,#fbfcff 164px) 0 0/180px 180px,linear-gradient(rgba(0,0,0,0) 164px,#fbfcff 164px) 0 0/180px 180px,#e7ecf6}
+.fade-l{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%)}
+.route{fill:none;stroke:#2f6bea;stroke-width:8;stroke-linecap:round;stroke-dasharray:.1 22}
+.ph{position:absolute;box-sizing:border-box;padding:12px;border-radius:60px;background:linear-gradient(145deg,#56628a 0%,#1d2440 16%,#0b0f1d 50%,#1d2440 84%,#46507a 100%)}
+.ph .scr{position:relative;overflow:hidden;border-radius:48px;background:#fff}
+.ph .scr img{display:block;width:100%;height:auto}
+.ph .isl{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:31%;height:30px;border-radius:20px;background:#05070f}
+.ph .glare{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:48px;background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 24%);pointer-events:none}
+.ph .br{position:absolute;right:-3px;top:24%;width:4px;height:11%;border-radius:0 3px 3px 0;background:linear-gradient(90deg,#1d2440,#5b6690)}
+.ph .bl1{position:absolute;left:-3px;top:17%;width:4px;height:5%;border-radius:3px 0 0 3px;background:linear-gradient(270deg,#1d2440,#5b6690)}
+.ph .bl2{position:absolute;left:-3px;top:25%;width:4px;height:8%;border-radius:3px 0 0 3px;background:linear-gradient(270deg,#1d2440,#5b6690)}
+.ph-shadow{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.24),inset 0 0 0 6px #070a14,0 70px 110px -40px rgba(14,27,61,.45),0 24px 40px -16px rgba(14,27,61,.3)}
+.ph3d{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.24),inset 0 0 0 6px #070a14,5px 6px 0 -1px #1d2440,10px 12px 0 -2px #121831,50px 80px 100px -30px rgba(14,27,61,.45)}
+.pin3d{position:absolute;border-radius:50% 50% 50% 10px;transform:rotate(-45deg);background:radial-gradient(circle at 32% 28%,#fff7cf 0%,#ffd451 20%,#ffb800 55%,#c98900 100%);box-shadow:inset -10px -12px 22px rgba(120,64,0,.38),inset 8px 10px 16px rgba(255,255,255,.5),0 34px 44px -12px rgba(14,27,61,.4)}
+.pin3d .disc{position:absolute;left:50%;top:50%;width:52%;height:52%;transform:translate(-50%,-50%) rotate(45deg);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffff,#e9eefb 70%,#cfd8ee);display:flex;align-items:center;justify-content:center;color:#2f6bea}
+.co{position:absolute;left:820px;width:280px;text-align:right}
+.co-t{font-size:19px;font-weight:800;letter-spacing:-.01em;color:#0e1b3d}
+.co-s{margin-top:3px;font-size:15px;font-weight:500;line-height:1.35;color:#5e6886}
+.co-line{position:absolute;left:1112px;height:0;border-top:1.5px solid #0e1b3d}
+.co-dot{position:absolute;width:14px;height:14px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;border:3px solid #2f6bea;box-shadow:0 0 0 6px rgba(47,107,234,.2)}
+.tile{position:relative;height:186px;border-radius:22px;overflow:hidden;border:1px solid #e5e9f2;background:linear-gradient(90deg,rgba(0,0,0,0) 54px,#fbfcff 54px) 0 0/66px 66px,linear-gradient(rgba(0,0,0,0) 54px,#fbfcff 54px) 0 0/66px 66px,#e7ecf6}
+.mbus{position:absolute;width:44px;height:28px;border-radius:9px;background:#fff;box-shadow:0 6px 12px -4px rgba(14,27,61,.35),inset 0 0 0 1px #e5e9f2}
+.mbus::after{content:"";position:absolute;left:6px;right:6px;top:6px;height:9px;border-radius:3px;background:#2f6bea}
+.meta{position:absolute;padding:5px 10px;border-radius:999px;background:#0e1b3d;color:#fff;font-size:13px;font-weight:800;white-space:nowrap}
+.mstop{position:absolute;width:28px;height:28px;border-radius:9px;background:#0e1b3d}
+.tag{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid #e5e9f2;font-size:15px;font-weight:700;color:#0e1b3d;box-shadow:0 10px 20px -12px rgba(14,27,61,.3)}
+</style>
+</helmet>
+<div class="pj" style="position: relative; width: 1920px; height: 1300px; overflow: hidden; background: #f4f7fd; color: #0e1b3d">
+  <div class="maptex fade-l" style="position: absolute; left: 760px; top: 0; right: 0; bottom: 0"></div>
+  <div class="ghost" style="position: absolute; left: 40px; top: 690px; font-size: 520px">LIVE</div>
+
+  <svg style="position: absolute; left: 0; top: 0" width="1920" height="1300" viewBox="0 0 1920 1300" aria-hidden="true">
+    <path class="route" d="M960 -10 C960 80 1030 116 1140 116 L1500 116 C1590 116 1620 160 1620 250 L1620 1150 C1620 1214 1584 1240 1510 1240 L1040 1240 C990 1240 960 1260 960 1310"></path>
+  </svg>
+
+  <div style="position: absolute; left: 96px; top: 96px; display: flex; align-items: center; gap: 14px; font-size: 18px; font-weight: 700">
+    <span style="color: #2f6bea">16</span><span style="width: 28px; height: 2px; background: rgba(14,27,61,.35)"></span><span>Final screens</span><span style="color: #9aa3ba">03 / 10</span>
+  </div>
+  <h1 style="position: absolute; left: 96px; top: 160px; margin: 0; font-size: 116px; font-weight: 800; letter-spacing: -0.055em; line-height: .95">Live shuttle<br><span style="color: #2f6bea">tracking</span></h1>
+  <p style="position: absolute; left: 96px; top: 410px; margin: 0; width: 640px; font-size: 28px; font-weight: 500; line-height: 1.4; color: #5e6886">See the real shuttle, not a timetable. Know the minute to walk out, and that a seat is waiting.</p>
+
+  <div style="position: absolute; left: 96px; top: 560px; width: 640px; box-sizing: border-box; padding: 26px 28px; border-radius: 24px; background: #fff; border: 1px solid #e5e9f2; box-shadow: 0 24px 40px -28px rgba(14,27,61,.3)">
+    <div style="font-size: 13px; font-weight: 800; letter-spacing: .16em; color: #2f6bea">WHY THIS DESIGN</div>
+    <div style="margin-top: 10px; font-size: 21px; font-weight: 600; line-height: 1.45">Today's shuttle trackers score 1.3 to 2.7 stars, mostly for wrong arrival times. So Ridy leads with one honest countdown and says “On time” in words.</div>
+    <div style="margin-top: 12px; font-size: 13px; font-weight: 600; color: #5e6886">Passio GO 1.3★, TransLoc 2.7★ on the App Store. The Harvard Crimson, 2025</div>
+  </div>
+
+  <div style="position: absolute; left: 96px; top: 880px; font-size: 13px; font-weight: 800; letter-spacing: .16em; color: #2f6bea">MOTION · SHUTTLE APPROACHING</div>
+  <div style="position: absolute; left: 96px; top: 912px; width: 640px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+    <div class="tile">
+      <svg style="position: absolute; left: 0; top: 0" width="200" height="186" viewBox="0 0 200 186" aria-hidden="true"><path class="route" style="stroke-width: 5; stroke-dasharray: .1 13" d="M40 140 L150 140 L150 30"></path></svg>
+      <div class="mstop" style="left: 26px; top: 126px"></div>
+      <div class="mbus" style="left: 128px; top: 26px"></div>
+      <div class="meta" style="left: 92px; top: 62px">8 min</div>
+    </div>
+    <div class="tile">
+      <svg style="position: absolute; left: 0; top: 0" width="200" height="186" viewBox="0 0 200 186" aria-hidden="true"><path class="route" style="stroke-width: 5; stroke-dasharray: .1 13" d="M40 140 L150 140 L150 30"></path></svg>
+      <div class="mstop" style="left: 26px; top: 126px"></div>
+      <div class="mbus" style="left: 128px; top: 112px"></div>
+      <div class="meta" style="left: 84px; top: 76px">4 min</div>
+    </div>
+    <div class="tile">
+      <svg style="position: absolute; left: 0; top: 0" width="200" height="186" viewBox="0 0 200 186" aria-hidden="true"><path class="route" style="stroke-width: 5; stroke-dasharray: .1 13" d="M40 140 L150 140 L150 30"></path></svg>
+      <div style="position: absolute; left: 14px; top: 114px; width: 52px; height: 52px; border-radius: 50%; background: rgba(47,107,234,.18)"></div>
+      <div class="mstop" style="left: 26px; top: 126px"></div>
+      <div class="mbus" style="left: 62px; top: 126px"></div>
+      <div class="meta" style="left: 40px; top: 84px; background: #2f6bea">Arriving</div>
+    </div>
+  </div>
+  <p style="position: absolute; left: 96px; top: 1120px; margin: 0; width: 640px; font-size: 17px; font-weight: 500; line-height: 1.45; color: #5e6886">The marker glides along the route, the countdown ticks every second, and the status pill flips to “Shuttle arriving” at one minute.</p>
+
+  <div class="co" style="top: 270px"><div class="co-t">Status in plain words</div><div class="co-s">Always on top of the map</div></div>
+  <div class="co-line" style="top: 285px; width: 186px"></div><div class="co-dot" style="left: 1298px; top: 285px"></div>
+
+  <div class="co" style="top: 361px"><div class="co-t">Shuttle + live ETA</div><div class="co-s">On the map, no legend needed</div></div>
+  <div class="co-line" style="top: 376px; width: 308px"></div><div class="co-dot" style="left: 1420px; top: 376px"></div>
+
+  <div class="co" style="top: 554px"><div class="co-t">Your 2-min walk</div><div class="co-s">Darker dashes than the bus route</div></div>
+  <div class="co-line" style="top: 569px; width: 134px"></div><div class="co-dot" style="left: 1246px; top: 569px"></div>
+
+  <div class="co" style="top: 860px"><div class="co-t">The number that matters</div><div class="co-s">7:58 at your stop, 48px bold</div></div>
+  <div class="co-line" style="top: 875px; width: 125px"></div><div class="co-dot" style="left: 1237px; top: 875px"></div>
+
+  <div class="co" style="top: 945px"><div class="co-t">Seats and driver first</div><div class="co-s">14 free · On time, before you walk</div></div>
+  <div class="co-line" style="top: 960px; width: 156px"></div><div class="co-dot" style="left: 1268px; top: 960px"></div>
+
+  <div class="co" style="top: 1023px"><div class="co-t">Thumb-zone actions</div><div class="co-s">Share trip and Board, 56px tall</div></div>
+  <div class="co-line" style="top: 1038px; width: 93px"></div><div class="co-dot" style="left: 1205px; top: 1038px"></div>
+
+  <div class="ph ph-shadow" style="left: 1150px; top: 190px; width: 444px">
+    <div class="scr"><img src="/_blob/a2b0e52f271265364c54c5012cd43b54" alt="Ridy live shuttle tracking: Shuttle 7 arriving, 7:58 at your stop, 14 seats free, on time"><div class="isl"></div><div class="glare"></div></div>
+    <div class="br"></div><div class="bl1"></div><div class="bl2"></div>
+  </div>
+
+  <div class="tag" style="position: absolute; left: 1652px; top: 236px">
+    <span style="width: 8px; height: 8px; border-radius: 50%; background: #2f6bea"></span>Starts on Home
+  </div>
+  <div style="position: absolute; left: 1648px; top: 300px; perspective: 1600px">
+    <div class="ph ph3d" style="position: relative; width: 284px; transform: rotateY(-24deg) rotateZ(3deg)">
+      <div class="scr"><img src="/_blob/73da3a713a3e11972689a20dba9a50f4" alt="Ridy student home with Track shuttle button"><div class="isl"></div><div class="glare"></div></div>
+      <div class="br"></div><div class="bl1"></div><div class="bl2"></div>
+    </div>
+  </div>
+  <div style="position: absolute; left: 1660px; top: 930px; width: 220px; font-size: 16px; font-weight: 600; line-height: 1.4; color: #5e6886">One tap on <span style="color: #0e1b3d; font-weight: 800">Track shuttle</span> opens the live map.</div>
+
+  <div class="pin3d" style="left: 1548px; top: 96px; width: 96px; height: 96px">
+    <div class="disc">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
