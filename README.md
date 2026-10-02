@@ -11,6 +11,7 @@ Claude Code setup: plugins and skills that load automatically in every Claude Co
 | figma, canva, adobe-for-creativity | `anthropics/claude-plugins-official` |
 | humanizer | `blader/humanizer` |
 | ui-ux-pro-max | `nextlevelbuilder/ui-ux-pro-max-skill` |
+| fiverr-gig-optimizer | `Ahad690/fiverr-gig-optimizer` |
 
 Canva, Figma, Adobe and Postiz connect to their services through MCP, so each one asks you to sign in the first time you use it.
 
@@ -22,7 +23,10 @@ Canva, Figma, Adobe and Postiz connect to their services through MCP, so each on
 | landing-page-generator | `borghei/Claude-Skills` (`marketing/`) |
 | brand-guidelines | `anthropics/skills` |
 | canvas-design | `anthropics/skills` |
+| upwork-apply | `aiagentwithdhruv/Automation` (`claude-skills/.claude/skills/`) |
+| case-study-skill | Written for this repo (no public source found) |
 
-## Not included
+## Setup notes
 
-`fiverr-gig-optimizer`, `upwork-apply` and `case-study-skill` have no public source. To add them, export each one from claude.ai (Settings → Capabilities → Skills) and drop its folder into `.claude/skills/<name>/`.
+- **upwork-apply** needs `APIFY_API_TOKEN` and `ANTHROPIC_API_KEY` in a `.env` file, plus Google credentials (`token.json` or `service_account.json`) to write the results to a Google Sheet. Install its Python packages with `pip install requests python-dotenv anthropic gspread pandas google-api-python-client google-auth-oauthlib`. These secret files are listed in `.gitignore`.
+- **fiverr-gig-optimizer** runs Python scripts; see its repo for `requirements.txt`.

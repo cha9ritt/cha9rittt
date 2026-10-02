@@ -1,0 +1,8 @@
+# Secrets used by skills (upwork-apply etc.)
+.env
+token.json
+service_account.json
+credentials.json
+
+# Scratch output from skill scripts
+.tmp/

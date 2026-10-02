@@ -14,7 +14,8 @@
     "canva@claude-plugins-official": true,
     "adobe-for-creativity@claude-plugins-official": true,
     "humanizer@humanizer": true,
-    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "fiverr-gig-optimizer@fiverr-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -39,6 +40,12 @@
       "source": {
         "source": "github",
         "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "fiverr-tools": {
+      "source": {
+        "source": "github",
+        "repo": "Ahad690/fiverr-gig-optimizer"
       }
     }
   }
