@@ -15,7 +15,26 @@
     "adobe-for-creativity@claude-plugins-official": true,
     "humanizer@humanizer": true,
     "ui-ux-pro-max@ui-ux-pro-max-skill": true,
-    "fiverr-gig-optimizer@fiverr-tools": true
+    "fiverr-gig-optimizer@fiverr-tools": true,
+    "frontend-design@claude-plugins-official": true,
+    "superdesign@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "impeccable@impeccable": true,
+    "design-research@designer-skills": true,
+    "design-systems@designer-skills": true,
+    "ux-strategy@designer-skills": true,
+    "ui-design@designer-skills": true,
+    "interaction-design@designer-skills": true,
+    "prototyping-testing@designer-skills": true,
+    "design-ops@designer-skills": true,
+    "designer-toolkit@designer-skills": true,
+    "visual-critique@designer-skills": true,
+    "cognitive-accessibility@designer-skills": true,
+    "inclusive-interaction@designer-skills": true,
+    "accessible-content@designer-skills": true,
+    "inclusive-personas@designer-skills": true,
+    "adaptive-interfaces@designer-skills": true,
+    "accessibility-decisions@designer-skills": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -46,6 +65,18 @@
       "source": {
         "source": "github",
         "repo": "Ahad690/fiverr-gig-optimizer"
+      }
+    },
+    "designer-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Owl-Listener/designer-skills"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
       }
     }
   }

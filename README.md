@@ -12,8 +12,12 @@ Claude Code setup: plugins and skills that load automatically in every Claude Co
 | humanizer | `blader/humanizer` |
 | ui-ux-pro-max | `nextlevelbuilder/ui-ux-pro-max-skill` |
 | fiverr-gig-optimizer | `Ahad690/fiverr-gig-optimizer` |
+| frontend-design, superdesign, playground | `anthropics/claude-plugins-official` |
+| impeccable (23 UI design commands: craft, critique, audit, polish, animate) | `pbakaus/impeccable` |
+| design-research, design-systems, ux-strategy, ui-design, interaction-design, prototyping-testing, design-ops, designer-toolkit, visual-critique | `Owl-Listener/designer-skills` |
+| cognitive-accessibility, inclusive-interaction, accessible-content, inclusive-personas, adaptive-interfaces, accessibility-decisions | `Owl-Listener/designer-skills` |
 
-Canva, Figma, Adobe and Postiz connect to their services through MCP, so each one asks you to sign in the first time you use it.
+Canva, Figma, Adobe, Superdesign and Postiz connect to their services through MCP, so each one asks you to sign in the first time you use it.
 
 ## Skills (`.claude/skills/`)
 
@@ -25,6 +29,9 @@ Canva, Figma, Adobe and Postiz connect to their services through MCP, so each on
 | canvas-design | `anthropics/skills` |
 | upwork-apply | `aiagentwithdhruv/Automation` (`claude-skills/.claude/skills/`) |
 | case-study-skill | Written for this repo (no public source found) |
+| claude-design (HTML mockups, decks, prototypes, posters) | `jiji262/claude-design-skill` |
+| theme-factory, algorithmic-art, web-artifacts-builder | `anthropics/skills` |
+| web-design-guidelines | `vercel-labs/agent-skills` |
 
 ## Setup notes
 
