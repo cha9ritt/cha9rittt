@@ -41,3 +41,28 @@ Frame names: "<Flow> · <Screen> · Desktop 1440" (and "Tablet 834", "Mobile 390
 - Mobile Add child uses the app's form layout, not a map bottom sheet: the app's Add child has no map.
 - The app has no "Skip for now" on any setup step, so the web has none either. "Not now" is kept on Turn on alerts.
 - Choose role is counted as step 1 in both flows (as in the app), so the screen shows "Step 1 of 6" for parents and "Step 1 of 3" for students.
+
+---
+
+# Logged-in web app (Web 03–11) redesign
+
+Two sizes only: Desktop 1440 and Mobile 390. No tablet frames, and Web 10 · Tablet is not touched.
+
+## Shared components ("Web app · components" frame 289:702, on the Web 03 page, left of the screens)
+- App / Button 289:865: Style = Primary | Secondary | Outline | Danger | Ghost; Size = Large 48 | Small 40; State = Default | Hover | Focus | Disabled
+- App / Icon button 289:886 (44px, optional dot), App / Nav item 289:922 (Default | Hover | Active | Focus | Disabled)
+- App / Status chip 289:956: Tone = Blue | Success | Warning | Danger | Neutral | On blue; always icon + text
+- App / Filter chip 289:967, App / Sidebar · Parent 292:2376 (Active=<page>), App / Tab bar 292:2465 (Home | Rides | Carpool | Profile)
+- App / Top bar 292:2466 (desktop), App / Mobile top bar 292:2534 (Type = Home | Page)
+- App / Stop row 292:2561 (Done | Current | Upcoming), App / Ride row 292:2650, App / Alert row 292:2738 (Unread × State)
+- Focus ring = 2px white gap + 2px brand/blue-700 ring, made with spread drop shadows. These only render when the frame has clipsContent = true.
+- Gotcha: setBoundVariableForPaint drops the paint opacity. Set opacity on the returned paint, or use layer opacity.
+
+## Desktop layout
+Frame is horizontal, 1440 fixed width, hugs height with a 900 minimum, fill neutral/canvas. The sidebar instance is 264 fixed and fills the height. Main is vertical with padding 32/40/40/40 and a 24 gap: Top bar, then white cards (radius/lg, no border, no shadow).
+
+## Mobile layout
+390 fixed width, hugs height with an 844 minimum. Mobile top bar, then content (padding 8/20/24/20, gap 24), then the Tab bar inside a wrapper with padding 8/20/24/20 (fixed on scroll). No browser bar.
+
+## Progress
+- [x] Web 03 · Home & live tracking: Home, Home · menu open, Live tracking (Desktop 1440 + Mobile 390)
