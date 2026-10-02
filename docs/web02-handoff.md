@@ -66,3 +66,14 @@ Frame is horizontal, 1440 fixed width, hugs height with a 900 minimum, fill neut
 
 ## Progress
 - [x] Web 03 · Home & live tracking: Home, Home · menu open, Live tracking (Desktop 1440 + Mobile 390)
+
+## Notifications / Messages de-duplication (done)
+- Desktop: the bell and chat icons are removed from the page header everywhere. The sidebar keeps both items with their counts.
+  - App / Top bar: new "Show notification icons" property, off by default.
+  - Web 04 (DS "Web / Topbar" instances): the two icons are hidden as instance overrides. The DS page is untouched.
+  - Web 05–09 and 11 (flattened imports): the two icon groups next to search are deleted and the search group is moved right 112px.
+- Mobile: the top bar has bell + chat with counts. Notifications and Messages are removed from the menus (Web 03 Home · menu open, Web 09 Student home · menu open).
+  - App / Mobile top bar: Home variant now has Messages too. New App / Mobile header 298:25111 (Page = Default | Notifications | Messages) replaces "Web / Mobile header" on Web 04.
+  - Flattened phone frames: chat glyph added, the bell dot became a count, and an Active ring was added on the Notifications/Alerts and Messages pages.
+- App / Icon button now has Show count / Count props and a State=Active variant.
+- Counts: parent 3 / 2, student Alerts 2 / Messages 1. "Notifications empty" shows no Notifications count (the screen says "No unread alerts").
