@@ -1,0 +1,45 @@
+{
+  "enabledPlugins": {
+    "sales@knowledge-work-plugins": true,
+    "marketing@knowledge-work-plugins": true,
+    "finance@knowledge-work-plugins": true,
+    "data@knowledge-work-plugins": true,
+    "design@knowledge-work-plugins": true,
+    "product-management@knowledge-work-plugins": true,
+    "searchfit-seo@knowledge-work-plugins": true,
+    "postiz@knowledge-work-plugins": true,
+    "desktop-commander@knowledge-work-plugins": true,
+    "pdf-viewer@knowledge-work-plugins": true,
+    "figma@claude-plugins-official": true,
+    "canva@claude-plugins-official": true,
+    "adobe-for-creativity@claude-plugins-official": true,
+    "humanizer@humanizer": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "knowledge-work-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/knowledge-work-plugins"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    }
+  }
+}
