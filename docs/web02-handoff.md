@@ -96,3 +96,10 @@ Made cleaner to match the app wireframes:
 - Big colored panels (blue live cards, heroes) are light #f4f4f5 cards with grey bars. Only buttons stay dark #71717a.
 - Route lines, decorative rings and rotated shapes are dropped.
 - All 154 frames in 11 sections were rebuilt.
+
+## Web case study: wireframes section (2026-10-03)
+- New section "09 · Wireframes" (414:8893) in "Ridy 2.0 · Web case study · Dark" (page 284:23). It sits right after "08 · Site map & navigation", the same place as "18 · Wireframes" in the app case study.
+- It is built from the app section's shell: dark band, "Ridy 2.0" title, gray subtitle, top and bottom fades, and a grid tilted -28°.
+- The grid (414:8894) has 7 columns: 5 desktop columns (cards 520×325, 9 each) and 2 mobile columns (cards 304×658, 5 each). Columns are staggered by 180px.
+- Every card is a scaled clone of a frame from "🧩 Wireframes · Web".
+- The later sections were renamed 10–20 to keep the order. Only layer names changed; no section number appears on the canvas. "21 · Thank you" is unchanged, so the old gap at 20 is now filled.
